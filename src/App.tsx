@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { TextboxCSSMod } from './TextboxCSSMod';
+import { TextboxSC } from './TextboxSC';
+import { TextboxTailwind } from './TextboxTailwind';
+// import { Alert } from './Alert';
+import { Counter } from './Counter';
+import { CatFacts } from './CatFact';
 
-function App() {
+const App = () => {
+
+  const inputStyle = {
+    padding: "5px",
+    backgroundColor: "yellow"
+  };
+
+  const [ showCatFacts, setShowCatFacts ] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      {/* <h1>Min app</h1>
+      <input type="text" style={inputStyle} />
+      <TextboxCSSMod />
+
+      <p>Styled components: <TextboxSC /></p>
+      <p>Tailwind: <TextboxTailwind /></p>
+
+      <Alert>Mitt meddelande</Alert>
+      <Alert variant="danger">Mitt meddelande</Alert> */}
+      {/* <Counter /> */}
+      
+      {showCatFacts && <CatFacts /> }
+      <button onClick={() => setShowCatFacts(true)}>Visa Catfacts</button>
+    </>
+  )
 }
 
 export default App;
